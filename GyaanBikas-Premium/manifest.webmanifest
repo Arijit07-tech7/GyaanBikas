@@ -1,0 +1,9 @@
+{
+  "name":"GyaanBikas — Learn. Build. Grow.",
+  "short_name":"GyaanBikas",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f6f9ff",
+  "theme_color":"#f6f9ff",
+  "icons":[{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
