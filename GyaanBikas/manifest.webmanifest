@@ -1,15 +1,29 @@
 {
   "name": "GyaanBikas — Learn. Build. Grow.",
   "short_name": "GyaanBikas",
+  "id": "./",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f9ff",
-  "theme_color": "#f6f9ff",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "portrait-primary",
+  "background_color": "#f8fbff",
+  "theme_color": "#f8fbff",
+  "description": "GyaanBikas — Personal Learning & Knowledge App",
   "icons": [
     {
-      "src": "assets/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
