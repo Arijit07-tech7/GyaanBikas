@@ -1,763 +1,1116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="UTF-8" />
 
-  <meta name="theme-color" content="#f8fbff">
-  <meta name="description" content="GyaanBikas — Personal Learning & Knowledge App">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
 
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/icon.svg">
+  <meta
+    name="theme-color"
+    content="#f6f9ff"
+  />
+
+  <meta
+    name="description"
+    content="GyaanBikas — Learn. Build. Grow."
+  />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  />
 
   <title>GyaanBikas — Learn. Build. Grow.</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/app.css">
-</head>
-
+  <link
+    rel="stylesheet"
+    href="./css/app.css?v=20260925-1"
+  />
 </head>
 
 <body>
 
-  <!-- =========================
-       PWA INSTALL BUTTON
-  ========================== -->
+  <!-- ======================================================
+       CINEMATIC SPLASH
+  ======================================================= -->
 
-  <button
-    id="installAppBtn"
-    class="install-app-btn hidden"
-    type="button"
-    aria-label="Install GyaanBikas">
+  <div id="splash" class="splash-screen">
 
-    <span>⬇</span>
-    <span>Install GyaanBikas</span>
+    <div class="splash-stars" aria-hidden="true"></div>
+    <div class="splash-grid" aria-hidden="true"></div>
 
-  </button>
+    <div class="splash-halo splash-halo-one"></div>
+    <div class="splash-halo splash-halo-two"></div>
 
-  <!-- =========================
-       SPLASH SCREEN
-  ========================== -->
-  <div id="splash" class="splash" aria-label="Loading GyaanBikas">
-
-    <div class="splash-stars"></div>
-    <div class="splash-grid"></div>
-
-    <div class="splash-halo halo-one"></div>
-    <div class="splash-halo halo-two"></div>
-
-    <div class="splash-orbit orbit-a">
-      <i></i>
-    </div>
-
-    <div class="splash-orbit orbit-b">
-      <i></i>
-    </div>
-
-    <div class="splash-orbit orbit-c">
-      <i></i>
-    </div>
-
-    <div class="splash-node node-a"></div>
-    <div class="splash-node node-b"></div>
-    <div class="splash-node node-c"></div>
-    <div class="splash-node node-d"></div>
+    <div class="splash-orbit orbit-one"></div>
+    <div class="splash-orbit orbit-two"></div>
+    <div class="splash-orbit orbit-three"></div>
 
     <div class="splash-core">
-      <div class="core-ring"></div>
 
-      <div class="core-glass">
-        <span>G</span>
+      <div class="splash-node node-one"></div>
+      <div class="splash-node node-two"></div>
+      <div class="splash-node node-three"></div>
+      <div class="splash-node node-four"></div>
+
+      <div class="splash-logo">
+        G
       </div>
+
     </div>
 
-    <div class="splash-copy">
-      <div class="splash-kicker">
-        PERSONAL LEARNING OS
+    <div class="splash-content">
+
+      <div class="splash-eyebrow">
+        PERSONAL LEARNING SYSTEM
       </div>
 
-      <b>
+      <h1>
         Gyaan<span>Bikas</span>
-      </b>
+      </h1>
 
-      <small>
+      <p>
         Learn. Build. Grow.
-      </small>
+      </p>
 
-      <div class="splash-line">
-        <i></i>
+      <div class="splash-loader">
+        <span></span>
       </div>
-    </div>
 
-    <div class="splash-status">
-      <span></span>
-      Preparing your learning space
+      <div id="splashStatus" class="splash-status">
+        Preparing your learning space
+      </div>
+
     </div>
 
   </div>
 
 
-  <!-- =========================
-       TOAST
-  ========================== -->
-  <div id="toast" class="toast"></div>
-
-
-  <!-- =========================
+  <!-- ======================================================
        AUTH VIEW
-  ========================== -->
-  <section id="authView" class="auth-shell hidden">
+  ======================================================= -->
 
-    <div class="auth-art">
+  <main id="authView" class="auth-view hidden">
 
-      <div class="art-grid"></div>
-      <div class="art-orb"></div>
+    <section class="auth-visual">
 
-      <div class="brand-lockup">
+      <div class="auth-orbit auth-orbit-a"></div>
+      <div class="auth-orbit auth-orbit-b"></div>
 
-        <div class="brand-mark">
-          G
-        </div>
-
-        <div>
-          <strong>GyaanBikas</strong>
-          <span>Personal Learning &amp; Knowledge App</span>
-        </div>
-
+      <div class="auth-brand-mark">
+        G
       </div>
 
-      <div class="hero-copy">
+      <div class="auth-visual-copy">
 
-        <p class="eyebrow">
-          YOUR KNOWLEDGE, ORGANIZED
-        </p>
+        <span class="eyebrow">
+          GYAANBIKAS
+        </span>
 
         <h1>
-          Turn what you learn
-          <br>
-          <em>into what you know.</em>
+          Your knowledge.<br />
+          <span>Your growth.</span>
         </h1>
 
         <p>
-          Capture concepts, references, code, visuals and learning moments
-          in one beautiful private workspace.
+          A premium personal learning space for your notes,
+          quizzes, progress and ideas.
         </p>
 
       </div>
 
-      <div class="floating-chip chip-one">
-        ✦ Focused learning
+      <div class="auth-feature-strip">
+
+        <span>📚 Notes</span>
+        <span>🧠 Quizzes</span>
+        <span>📈 Progress</span>
+        <span>🏆 Achievements</span>
+
       </div>
 
-      <div class="floating-chip chip-two">
-        ⌁ Your notes. Your space.
-      </div>
-
-    </div>
+    </section>
 
 
-    <!-- AUTH PANEL -->
-    <div class="auth-panel">
+    <section class="auth-panel">
 
       <div class="auth-card">
 
-        <div class="mobile-brand">
+        <div class="auth-header">
 
-          <div class="brand-mark">
-            G
+          <div class="mini-brand">
+            <div class="mini-brand-icon">G</div>
+
+            <div>
+              <strong>GyaanBikas</strong>
+              <span>Learn. Build. Grow.</span>
+            </div>
           </div>
 
-          <strong>
-            GyaanBikas
-          </strong>
+          <div>
+            <span id="authEyebrow" class="eyebrow">
+              WELCOME BACK
+            </span>
+
+            <h2 id="authTitle">
+              Continue learning.
+            </h2>
+
+            <p id="authSubtitle">
+              Sign in to access your learning space.
+            </p>
+          </div>
 
         </div>
 
 
-        <div class="auth-head">
+        <!-- Google -->
 
-          <p class="eyebrow">
-            WELCOME BACK
-          </p>
-
-          <h2 id="authTitle">
-            Sign in
-          </h2>
-
-          <p id="authSubtitle">
-            Continue your learning journey.
-          </p>
-
-        </div>
-
-
-        <!-- GOOGLE LOGIN -->
-        <button id="googleBtn" class="google-btn" type="button">
-
-          <span class="google-icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              role="img"
-              aria-hidden="true">
-
-              <path
-                fill="#4285F4"
-                d="M21.35 12.23c0-.72-.06-1.42-.18-2.09H12v3.96h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.26Z" />
-
-              <path
-                fill="#34A853"
-                d="M12 21.75c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.93-3.31.93-2.54 0-4.69-1.72-5.46-4.03H3.3v2.53A9.75 9.75 0 0 0 12 21.75Z" />
-
-              <path
-                fill="#FBBC05"
-                d="M6.54 13.84A5.86 5.86 0 0 1 6.23 12c0-.64.11-1.26.31-1.84V7.63H3.3A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.06 1.05 4.37l3.24-2.53Z" />
-
-              <path
-                fill="#EA4335"
-                d="M12 6.13c1.43 0 2.71.49 3.72 1.45l2.79-2.79C16.84 3.14 14.63 2.25 12 2.25a9.75 9.75 0 0 0-8.7 5.38l3.24 2.53 3.24 2.53C7.31 7.85 9.46 6.13 12 6.13Z" />
-
-            </svg>
-
-          </span>
-
-          <span>
-            Continue with Google
-          </span>
-
-          <span class="oauth-arrow">
-            ↗
-          </span>
-
+        <button
+          id="googleBtn"
+          class="google-auth-btn"
+          type="button"
+        >
+          <span class="google-icon">G</span>
+          <span>Continue with Google</span>
         </button>
 
 
-        <div class="divider">
-          <span>
-            or continue with email
-          </span>
+        <div class="auth-divider">
+          <span>or continue with email</span>
         </div>
 
 
-        <!-- EMAIL AUTH FORM -->
-        <form id="authForm">
+        <!-- Email Auth -->
 
-          <!-- NAME -->
-          <label id="nameWrap" class="field hidden">
+        <form id="authForm" class="auth-form">
 
-            <span>
+          <div
+            id="nameField"
+            class="field-group hidden"
+          >
+            <label for="authName">
               Full name
-            </span>
+            </label>
 
             <input
-              id="name"
+              id="authName"
+              type="text"
               autocomplete="name"
-              placeholder="Your name">
+              placeholder="Your name"
+            />
+          </div>
 
-          </label>
 
+          <div class="field-group">
 
-          <!-- EMAIL -->
-          <label class="field">
-
-            <span>
-              Email
-            </span>
+            <label for="authEmail">
+              Email address
+            </label>
 
             <input
-              id="email"
+              id="authEmail"
               type="email"
               autocomplete="email"
               placeholder="you@example.com"
-              required>
+              required
+            />
 
-          </label>
+          </div>
 
 
-          <!-- PASSWORD -->
-          <label class="field">
+          <div class="field-group">
 
-            <span>
+            <label for="authPassword">
               Password
-            </span>
+            </label>
 
-            <div class="password-box">
+            <div class="password-wrap">
 
               <input
-                id="password"
+                id="authPassword"
                 type="password"
-                minlength="6"
                 autocomplete="current-password"
                 placeholder="••••••••"
-                required>
+                required
+              />
 
               <button
+                id="togglePassword"
                 type="button"
-                id="togglePassword">
-                Show
+                class="password-toggle"
+                aria-label="Show password"
+              >
+                ◉
               </button>
 
             </div>
 
-          </label>
+          </div>
 
 
-          <!-- SUBMIT -->
           <button
-            id="submitBtn"
-            class="primary-btn"
-            type="submit">
-
-            <span id="submitText">
+            id="authSubmit"
+            class="primary-btn auth-submit"
+            type="submit"
+          >
+            <span id="authSubmitText">
               Sign in
             </span>
 
-            <span>
-              →
-            </span>
-
+            <span
+              id="authSubmitLoader"
+              class="button-loader hidden"
+            ></span>
           </button>
 
         </form>
 
 
-        <p id="authMessage" class="auth-message"></p>
-
-
-        <button
-          id="switchBtn"
-          class="text-btn"
-          type="button">
+        <div class="auth-switch">
 
           <span id="switchText">
-            Create an account
+            Don't have an account?
           </span>
 
-        </button>
+          <button
+            id="switchBtn"
+            type="button"
+          >
+            Create one
+          </button>
 
-
-        <p class="legal">
-          Your notes are private and protected by your Supabase account.
-        </p>
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
-
-
-  <!-- =========================
-       MAIN APP
-  ========================== -->
-  <section id="appView" class="app-shell hidden">
+  </main>
 
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+  <!-- ======================================================
+       APPLICATION
+  ======================================================= -->
 
-      <div class="side-brand">
+  <div id="appView" class="app-shell hidden">
 
-        <div class="brand-mark">
+
+    <!-- ====================================================
+         MOBILE OVERLAY
+    ===================================================== -->
+
+    <div
+      id="sidebarOverlay"
+      class="sidebar-overlay"
+    ></div>
+
+
+    <!-- ====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside id="sidebar" class="sidebar">
+
+      <div class="sidebar-brand">
+
+        <div class="brand-icon">
           G
         </div>
 
-        <div>
+        <div class="brand-copy">
+
           <strong>
             GyaanBikas
           </strong>
 
-          <small>
-            Learn · Build · Grow
-          </small>
+          <span>
+            Learn. Build. Grow.
+          </span>
+
         </div>
+
+        <button
+          id="mobileSidebarClose"
+          class="icon-btn mobile-only"
+          type="button"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
 
       </div>
 
 
-      <!-- NAVIGATION -->
-      <nav>
+      <!-- Main Navigation -->
+
+      <nav class="sidebar-nav">
+
+        <div class="nav-section-label">
+          LEARNING
+        </div>
 
         <button
           class="nav-item active"
-          data-view="home"
-          type="button">
-
-          <span>⌂</span>
-          Home
-
+          data-view="homeView"
+          type="button"
+        >
+          <span class="nav-icon">⌂</span>
+          <span>Home</span>
         </button>
-
 
         <button
           class="nav-item"
-          data-view="notes"
-          type="button">
-
-          <span>✦</span>
-          All Notes
-
+          data-view="notesView"
+          type="button"
+        >
+          <span class="nav-icon">▤</span>
+          <span>All Notes</span>
+          <span
+            id="notesNavCount"
+            class="nav-count"
+          >
+            0
+          </span>
         </button>
-
 
         <button
           class="nav-item"
-          data-view="search"
-          type="button">
-
-          <span>⌕</span>
-          Search
-
+          data-view="quizView"
+          type="button"
+        >
+          <span class="nav-icon">✦</span>
+          <span>Quiz</span>
         </button>
-
 
         <button
           class="nav-item"
-          data-view="settings"
-          type="button">
+          data-view="progressView"
+          type="button"
+        >
+          <span class="nav-icon">◒</span>
+          <span>My Progress</span>
+        </button>
 
-          <span>⚙</span>
-          Settings
+        <button
+          class="nav-item"
+          data-view="achievementsView"
+          type="button"
+        >
+          <span class="nav-icon">◇</span>
+          <span>Achievements</span>
+        </button>
 
+
+        <div class="nav-section-label">
+          EXPLORE
+        </div>
+
+        <button
+          class="nav-item"
+          data-view="searchView"
+          type="button"
+        >
+          <span class="nav-icon">⌕</span>
+          <span>Search</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-view="favoritesView"
+          type="button"
+        >
+          <span class="nav-icon">♡</span>
+          <span>Favorites</span>
+        </button>
+
+
+        <div class="nav-section-label">
+          SYSTEM
+        </div>
+
+        <!-- Visible to everyone; actions inside are permission-aware -->
+
+        <button
+          class="nav-item"
+          data-view="adminView"
+          type="button"
+        >
+          <span class="nav-icon">◈</span>
+          <span>Admin Insights</span>
+          <span
+            id="adminBadge"
+            class="nav-badge"
+          >
+            VIEW
+          </span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-view="settingsView"
+          type="button"
+        >
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
         </button>
 
       </nav>
 
 
-      <!-- SIDEBAR BOTTOM -->
-      <div class="side-bottom">
+      <!-- Sidebar Bottom -->
 
-        <div class="mini-profile">
+      <div class="sidebar-bottom">
+
+        <button
+          id="installAppBtn"
+          class="install-app-btn hidden"
+          type="button"
+        >
+          <span>＋</span>
+          <div>
+            <strong>Install GyaanBikas</strong>
+            <small>Use it like an app</small>
+          </div>
+        </button>
+
+
+        <div class="sidebar-user">
 
           <div
-            id="sideAvatar"
-            class="avatar">
+            id="sidebarAvatar"
+            class="avatar"
+          >
             A
           </div>
 
-          <div>
+          <div class="sidebar-user-copy">
 
-            <b id="sideName">
+            <strong id="sidebarName">
               Learner
-            </b>
+            </strong>
 
-            <small id="sideEmail">
+            <span id="sidebarEmail">
               —
-            </small>
+            </span>
 
           </div>
 
+          <button
+            id="signOutBtn"
+            class="icon-btn"
+            type="button"
+            aria-label="Sign out"
+          >
+            ↪
+          </button>
+
         </div>
-
-
-        <button
-          id="signOutBtn"
-          class="logout"
-          type="button">
-
-          ↪ Sign out
-
-        </button>
 
       </div>
 
     </aside>
 
 
-    <!-- MAIN -->
-    <main class="main">
+    <!-- ====================================================
+         MAIN AREA
+    ===================================================== -->
+
+    <main class="main-area">
 
 
       <!-- TOPBAR -->
+
       <header class="topbar">
 
-        <button
-          id="mobileMenu"
-          class="icon-btn mobile-only"
-          type="button"
-          aria-label="Open menu">
+        <div class="topbar-left">
 
-          ☰
+          <button
+            id="mobileSidebarOpen"
+            class="icon-btn mobile-only"
+            type="button"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
 
-        </button>
-
-
-        <div
-          class="crumb"
-          id="crumb">
-
-          Home
+          <div
+            id="pageBreadcrumb"
+            class="page-breadcrumb"
+          >
+            Home
+          </div>
 
         </div>
 
 
-        <div class="top-actions">
+        <div class="topbar-actions">
 
           <button
-            id="themeBtn"
-            class="icon-btn"
-            title="Toggle theme"
-            type="button">
-
-            ☼
-
+            id="commandPaletteBtn"
+            class="command-search"
+            type="button"
+          >
+            <span>⌕</span>
+            <span>Search GyaanBikas...</span>
+            <kbd>Ctrl K</kbd>
           </button>
-
 
           <button
-            id="quickSearchBtn"
-            class="search-pill"
-            type="button">
-
-            ⌕
-            <span>
-              Search notes...
-            </span>
-
-            <kbd>
-              Ctrl K
-            </kbd>
-
+            id="themeToggle"
+            class="icon-btn theme-btn"
+            type="button"
+            aria-label="Toggle theme"
+          >
+            ☾
           </button>
 
-
-          <div
-            id="topAvatar"
-            class="avatar">
-
+          <button
+            id="topAvatarBtn"
+            class="avatar avatar-small"
+            type="button"
+          >
             A
-
-          </div>
+          </button>
 
         </div>
 
       </header>
 
 
-      <!-- CONTENT -->
-      <div class="content">
+      <!-- ==================================================
+           CONTENT
+      =================================================== -->
+
+      <section class="content-area">
 
 
-        <!-- =========================
+        <!-- ================================================
              HOME
-        ========================== -->
+        ================================================= -->
+
         <section
           id="homeView"
-          class="view">
+          class="page-view active"
+        >
 
           <div class="welcome-hero">
 
-            <div>
+            <div class="welcome-content">
 
-              <p class="eyebrow">
+              <div class="eyebrow">
                 YOUR LEARNING SPACE
-              </p>
+              </div>
 
               <h1>
-                Good to see you,
-                <span id="helloName">
+                Welcome back,
+                <span id="welcomeName">
                   Learner
-                </span>
-
-                <span class="wave">
-                  ✦
-                </span>
-
+                </span>.
               </h1>
 
               <p>
-                Choose a subject and keep building your knowledge,
-                one note at a time.
+                Keep learning, keep building,
+                and turn every lesson into progress.
               </p>
+
+              <div class="hero-actions">
+
+                <button
+                  id="heroNewNoteBtn"
+                  class="primary-btn"
+                  type="button"
+                >
+                  ＋ New Note
+                </button>
+
+                <button
+                  id="heroQuizBtn"
+                  class="ghost-btn"
+                  type="button"
+                >
+                  ✦ Take a Quiz
+                </button>
+
+              </div>
 
             </div>
 
-            <div class="hero-glow"></div>
+
+            <div class="hero-orb">
+
+              <div class="hero-orb-ring ring-a"></div>
+              <div class="hero-orb-ring ring-b"></div>
+              <div class="hero-orb-core">
+                G
+              </div>
+
+            </div>
 
           </div>
 
 
-          <div class="section-head">
+          <!-- Stats -->
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+
+              <div class="stat-icon blue">
+                ▤
+              </div>
+
+              <div>
+                <span>Total Notes</span>
+                <strong id="statNotes">
+                  0
+                </strong>
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon violet">
+                ✦
+              </div>
+
+              <div>
+                <span>Quizzes</span>
+                <strong id="statQuizzes">
+                  0
+                </strong>
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon green">
+                ◒
+              </div>
+
+              <div>
+                <span>Accuracy</span>
+                <strong id="statAccuracy">
+                  —
+                </strong>
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-icon orange">
+                🔥
+              </div>
+
+              <div>
+                <span>Learning Streak</span>
+                <strong id="statStreak">
+                  0 days
+                </strong>
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- Subjects -->
+
+          <div class="section-heading">
 
             <div>
-
-              <p class="eyebrow">
-                EXPLORE
-              </p>
+              <span class="eyebrow">
+                KNOWLEDGE LIBRARY
+              </span>
 
               <h2>
-                Choose a subject
+                Continue learning
               </h2>
-
             </div>
+
+            <button
+              class="text-btn"
+              data-view-target="notesView"
+              type="button"
+            >
+              View all →
+            </button>
 
           </div>
 
 
           <div
             id="subjectGrid"
-            class="subject-grid">
-          </div>
+            class="subject-grid"
+          ></div>
 
 
-          <div class="recent-head section-head">
+          <!-- Recent -->
+
+          <div class="section-heading">
 
             <div>
-
-              <p class="eyebrow">
-                YOUR KNOWLEDGE
-              </p>
+              <span class="eyebrow">
+                RECENTLY STUDIED
+              </span>
 
               <h2>
-                Recent notes
+                Your latest notes
               </h2>
-
             </div>
 
-
             <button
-              class="ghost-btn"
-              data-view="notes"
-              type="button">
-
-              View all →
-
+              class="text-btn"
+              data-view-target="notesView"
+              type="button"
+            >
+              All notes →
             </button>
 
           </div>
 
 
           <div
-            id="recentNotes"
-            class="note-grid">
-          </div>
+            id="recentNotesGrid"
+            class="notes-grid"
+          ></div>
 
         </section>
 
 
-        <!-- =========================
-             ALL NOTES
-        ========================== -->
+        <!-- ================================================
+             NOTES
+        ================================================= -->
+
         <section
           id="notesView"
-          class="view hidden">
+          class="page-view"
+        >
 
-          <div class="page-head">
+          <div class="page-header">
 
             <div>
 
-              <p class="eyebrow">
+              <span class="eyebrow">
                 KNOWLEDGE LIBRARY
-              </p>
+              </span>
 
               <h1>
-                All notes
+                All Notes
               </h1>
 
               <p>
-                Everything you have learned, in one place.
+                Your personal collection of lessons,
+                ideas and references.
               </p>
 
             </div>
 
-
             <button
-              id="addNoteBtn"
-              class="primary-btn compact"
-              type="button">
-
-              ＋ New note
-
+              id="newNoteBtn"
+              class="primary-btn"
+              type="button"
+            >
+              ＋ New Note
             </button>
 
           </div>
 
 
-          <div class="filter-bar">
+          <div class="library-toolbar">
 
-            <div class="filter-search">
+            <div class="search-field">
 
-              ⌕
+              <span>⌕</span>
 
               <input
                 id="notesSearch"
                 type="search"
-                placeholder="Search topic, subject, tags or content...">
+                placeholder="Search notes..."
+              />
 
             </div>
 
 
-            <select id="subjectFilter">
-
-              <option value="">
-                All subjects
-              </option>
-
-              <option>
-                Machine Learning
-              </option>
-
-              <option>
-                Python
-              </option>
-
-              <option>
-                Java
-              </option>
-
-              <option>
-                Data Science
-              </option>
-
-              <option>
-                Web Development
-              </option>
-
+            <select
+              id="subjectFilter"
+              class="select-field"
+            >
+              <option value="">All subjects</option>
             </select>
 
           </div>
 
 
           <div
-            id="allNotes"
-            class="note-grid">
+            id="notesGrid"
+            class="notes-grid"
+          ></div>
+
+        </section>
+
+
+        <!-- ================================================
+             QUIZ
+        ================================================= -->
+
+        <section
+          id="quizView"
+          class="page-view"
+        >
+
+          <div class="page-header">
+
+            <div>
+
+              <span class="eyebrow">
+                TEST YOUR KNOWLEDGE
+              </span>
+
+              <h1>
+                Quiz Arena
+              </h1>
+
+              <p>
+                Learn it. Practice it. Master it.
+              </p>
+
+            </div>
+
+            <div class="quiz-header-badge">
+              ✦ Smart Practice
+            </div>
+
+          </div>
+
+
+          <div
+            id="quizStats"
+            class="quiz-stat-grid"
+          >
+
+            <div class="quiz-mini-card">
+              <span>Available</span>
+              <strong id="availableQuizCount">0</strong>
+            </div>
+
+            <div class="quiz-mini-card">
+              <span>Attempts</span>
+              <strong id="quizAttemptCount">0</strong>
+            </div>
+
+            <div class="quiz-mini-card">
+              <span>Best Accuracy</span>
+              <strong id="quizBestAccuracy">—</strong>
+            </div>
+
+          </div>
+
+
+          <div
+            id="quizGrid"
+            class="quiz-grid"
+          ></div>
+
+
+          <!-- Active Quiz -->
+
+          <div
+            id="quizPlayer"
+            class="quiz-player hidden"
+          >
+
+            <div class="quiz-player-top">
+
+              <button
+                id="exitQuizBtn"
+                class="ghost-btn"
+                type="button"
+              >
+                ← Exit
+              </button>
+
+              <div
+                id="quizProgressText"
+                class="quiz-progress-text"
+              >
+                Question 1 / 10
+              </div>
+
+              <div
+                id="quizTimer"
+                class="quiz-timer"
+              >
+                00:00
+              </div>
+
+            </div>
+
+
+            <div class="quiz-progress-track">
+              <div
+                id="quizProgressBar"
+                class="quiz-progress-fill"
+              ></div>
+            </div>
+
+
+            <article class="quiz-question-card">
+
+              <div
+                id="quizQuestionNumber"
+                class="quiz-question-number"
+              >
+                QUESTION 01
+              </div>
+
+              <h2 id="quizQuestion">
+                Loading question...
+              </h2>
+
+              <div
+                id="quizOptions"
+                class="quiz-options"
+              ></div>
+
+              <div class="quiz-player-actions">
+
+                <button
+                  id="quizNextBtn"
+                  class="primary-btn"
+                  type="button"
+                >
+                  Next →
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- Quiz Result -->
+
+          <div
+            id="quizResult"
+            class="quiz-result hidden"
+          >
+
+            <div class="result-icon">
+              ✓
+            </div>
+
+            <span class="eyebrow">
+              QUIZ COMPLETE
+            </span>
+
+            <h2>
+              Excellent work.
+            </h2>
+
+            <div
+              id="quizScore"
+              class="quiz-score"
+            >
+              0 / 0
+            </div>
+
+            <div
+              id="quizResultMessage"
+              class="result-message"
+            >
+              Keep learning.
+            </div>
+
+            <div class="result-stats">
+
+              <div>
+                <span>Correct</span>
+                <strong id="resultCorrect">0</strong>
+              </div>
+
+              <div>
+                <span>Incorrect</span>
+                <strong id="resultIncorrect">0</strong>
+              </div>
+
+              <div>
+                <span>Accuracy</span>
+                <strong id="resultAccuracy">0%</strong>
+              </div>
+
+            </div>
+
+            <div class="hero-actions">
+
+              <button
+                id="retakeQuizBtn"
+                class="primary-btn"
+                type="button"
+              >
+                ↻ Retake
+              </button>
+
+              <button
+                id="reviewQuizBtn"
+                class="ghost-btn"
+                type="button"
+              >
+                Review Answers
+              </button>
+
+            </div>
+
           </div>
 
         </section>
 
 
-        <!-- =========================
-             SEARCH
-        ========================== -->
-        <section
-          id="searchView"
-          class="view hidden">
+        <!-- ================================================
+             PROGRESS
+        ================================================= -->
 
-          <div class="page-head">
+        <section
+          id="progressView"
+          class="page-view"
+        >
+
+          <div class="page-header">
 
             <div>
 
-              <p class="eyebrow">
-                GLOBAL SEARCH
-              </p>
+              <span class="eyebrow">
+                YOUR JOURNEY
+              </span>
 
               <h1>
-                Find a thought.
+                Learning Progress
               </h1>
 
               <p>
-                Search your private learning library.
+                See how your learning is growing over time.
               </p>
 
             </div>
@@ -765,49 +1118,548 @@
           </div>
 
 
-          <div class="big-search">
+          <div class="progress-overview-grid">
 
-            <span>
-              ⌕
-            </span>
+            <article class="progress-main-card">
 
-            <input
-              id="globalSearch"
-              type="search"
-              placeholder="Search your notes...">
+              <div class="progress-card-header">
+
+                <div>
+                  <span class="eyebrow">
+                    OVERALL PROGRESS
+                  </span>
+
+                  <h2>
+                    Keep going.
+                  </h2>
+                </div>
+
+                <div
+                  id="overallProgressValue"
+                  class="progress-ring-value"
+                >
+                  0%
+                </div>
+
+              </div>
+
+              <div class="large-progress-track">
+                <div
+                  id="overallProgressBar"
+                  class="large-progress-fill"
+                ></div>
+              </div>
+
+              <p id="progressSummary">
+                Start learning to build your journey.
+              </p>
+
+            </article>
+
+
+            <article class="streak-card">
+
+              <div class="streak-flame">
+                🔥
+              </div>
+
+              <span>
+                CURRENT STREAK
+              </span>
+
+              <strong id="progressStreak">
+                0
+              </strong>
+
+              <small>
+                consecutive learning days
+              </small>
+
+            </article>
+
+          </div>
+
+
+          <div class="section-heading">
+
+            <div>
+              <span class="eyebrow">
+                SUBJECTS
+              </span>
+
+              <h2>
+                Your learning journey
+              </h2>
+            </div>
 
           </div>
 
 
           <div
-            id="searchResults"
-            class="note-grid search-results">
+            id="learningJourney"
+            class="learning-journey"
+          ></div>
+
+
+          <div class="section-heading">
+
+            <div>
+              <span class="eyebrow">
+                ACTIVITY
+              </span>
+
+              <h2>
+                Learning activity
+              </h2>
+            </div>
+
+          </div>
+
+
+          <div
+            id="activityHeatmap"
+            class="activity-card"
+          ></div>
+
+        </section>
+
+
+        <!-- ================================================
+             ACHIEVEMENTS
+        ================================================= -->
+
+        <section
+          id="achievementsView"
+          class="page-view"
+        >
+
+          <div class="page-header">
+
+            <div>
+
+              <span class="eyebrow">
+                MILESTONES
+              </span>
+
+              <h1>
+                Achievements
+              </h1>
+
+              <p>
+                Every small step counts.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="achievementGrid"
+            class="achievement-grid"
+          ></div>
+
+        </section>
+
+
+        <!-- ================================================
+             SEARCH
+        ================================================= -->
+
+        <section
+          id="searchView"
+          class="page-view"
+        >
+
+          <div class="search-page">
+
+            <span class="eyebrow">
+              FIND ANYTHING
+            </span>
+
+            <h1>
+              Search GyaanBikas
+            </h1>
+
+            <p>
+              Search across your notes, topics, tags and references.
+            </p>
+
+
+            <div class="large-search-field">
+
+              <span>⌕</span>
+
+              <input
+                id="globalSearch"
+                type="search"
+                placeholder="Search your knowledge..."
+                autocomplete="off"
+              />
+
+              <kbd>Ctrl K</kbd>
+
+            </div>
+
+
+            <div
+              id="searchResults"
+              class="notes-grid"
+            ></div>
+
           </div>
 
         </section>
 
 
-        <!-- =========================
-             SETTINGS
-        ========================== -->
-        <section
-          id="settingsView"
-          class="view hidden">
+        <!-- ================================================
+             FAVORITES
+        ================================================= -->
 
-          <div class="page-head">
+        <section
+          id="favoritesView"
+          class="page-view"
+        >
+
+          <div class="page-header">
 
             <div>
 
-              <p class="eyebrow">
-                PREFERENCES
+              <span class="eyebrow">
+                SAVED FOR LATER
+              </span>
+
+              <h1>
+                Favorites
+              </h1>
+
+              <p>
+                Notes you want to revisit quickly.
               </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="favoritesGrid"
+            class="notes-grid"
+          ></div>
+
+        </section>
+
+
+        <!-- ================================================
+             ADMIN INSIGHTS
+        ================================================= -->
+
+        <section
+          id="adminView"
+          class="page-view"
+        >
+
+          <div class="page-header">
+
+            <div>
+
+              <span class="eyebrow">
+                GYAANBIKAS CONTROL CENTER
+              </span>
+
+              <h1>
+                Admin Insights
+              </h1>
+
+              <p>
+                Analytics, content and learning activity.
+              </p>
+
+            </div>
+
+            <div
+              id="adminAccessBadge"
+              class="admin-access-badge"
+            >
+              Read only
+            </div>
+
+          </div>
+
+
+          <!-- Admin Metrics -->
+
+          <div class="admin-metrics">
+
+            <article class="admin-metric-card">
+
+              <span>
+                Users
+              </span>
+
+              <strong id="adminUsersCount">
+                0
+              </strong>
+
+              <small>
+                Registered learners
+              </small>
+
+            </article>
+
+
+            <article class="admin-metric-card">
+
+              <span>
+                Notes
+              </span>
+
+              <strong id="adminNotesCount">
+                0
+              </strong>
+
+              <small>
+                Knowledge entries
+              </small>
+
+            </article>
+
+
+            <article class="admin-metric-card">
+
+              <span>
+                Quizzes
+              </span>
+
+              <strong id="adminQuizzesCount">
+                0
+              </strong>
+
+              <small>
+                Published + drafts
+              </small>
+
+            </article>
+
+
+            <article class="admin-metric-card">
+
+              <span>
+                Attempts
+              </span>
+
+              <strong id="adminAttemptsCount">
+                0
+              </strong>
+
+              <small>
+                Quiz attempts
+              </small>
+
+            </article>
+
+          </div>
+
+
+          <!-- Analytics -->
+
+          <div class="admin-grid">
+
+            <article class="analytics-card">
+
+              <div class="card-heading">
+
+                <div>
+                  <span class="eyebrow">
+                    ACTIVITY
+                  </span>
+
+                  <h2>
+                    Learning activity
+                  </h2>
+                </div>
+
+                <span class="chart-period">
+                  Last 7 days
+                </span>
+
+              </div>
+
+              <div
+                id="activityChart"
+                class="activity-chart"
+              ></div>
+
+            </article>
+
+
+            <article class="analytics-card">
+
+              <div class="card-heading">
+
+                <div>
+                  <span class="eyebrow">
+                    QUIZ PERFORMANCE
+                  </span>
+
+                  <h2>
+                    Accuracy
+                  </h2>
+                </div>
+
+              </div>
+
+              <div
+                id="accuracyChart"
+                class="accuracy-chart"
+              ></div>
+
+            </article>
+
+          </div>
+
+
+          <!-- Admin Actions -->
+
+          <div
+            id="adminActionsSection"
+            class="admin-management hidden"
+          >
+
+            <div class="section-heading">
+
+              <div>
+                <span class="eyebrow">
+                  CONTENT MANAGEMENT
+                </span>
+
+                <h2>
+                  Manage GyaanBikas
+                </h2>
+              </div>
+
+            </div>
+
+
+            <div class="admin-action-grid">
+
+              <button
+                id="adminNewNoteBtn"
+                class="admin-action-card"
+                type="button"
+              >
+                <span>▤</span>
+                <strong>Create Note</strong>
+                <small>Add a new learning resource</small>
+              </button>
+
+
+              <button
+                id="adminNewQuizBtn"
+                class="admin-action-card"
+                type="button"
+              >
+                <span>✦</span>
+                <strong>Create Quiz</strong>
+                <small>Build a topic-based quiz</small>
+              </button>
+
+
+              <button
+                id="adminManageNotesBtn"
+                class="admin-action-card"
+                type="button"
+              >
+                <span>◈</span>
+                <strong>Manage Notes</strong>
+                <small>Edit, pin or remove notes</small>
+              </button>
+
+
+              <button
+                id="adminManageQuizzesBtn"
+                class="admin-action-card"
+                type="button"
+              >
+                <span>◇</span>
+                <strong>Manage Quizzes</strong>
+                <small>Publish and manage questions</small>
+              </button>
+
+            </div>
+
+
+            <div class="section-heading compact-heading">
+
+              <div>
+                <span class="eyebrow">
+                  QUIZ MANAGER
+                </span>
+
+                <h2>
+                  Question bank
+                </h2>
+              </div>
+
+            </div>
+
+
+            <div
+              id="adminQuizManager"
+              class="admin-list"
+            ></div>
+
+          </div>
+
+
+          <div
+            id="adminReadonlyMessage"
+            class="readonly-card"
+          >
+
+            <div class="readonly-icon">
+              ◈
+            </div>
+
+            <div>
+              <strong>
+                Insights are available to all learners.
+              </strong>
+
+              <p>
+                Management controls are restricted to the
+                GyaanBikas administrator.
+              </p>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ================================================
+             SETTINGS
+        ================================================= -->
+
+        <section
+          id="settingsView"
+          class="page-view"
+        >
+
+          <div class="page-header">
+
+            <div>
+
+              <span class="eyebrow">
+                PERSONALIZE
+              </span>
 
               <h1>
                 Settings
               </h1>
 
               <p>
-                Make GyaanBikas feel like yours.
+                Make GyaanBikas feel like your own space.
               </p>
 
             </div>
@@ -815,235 +1667,760 @@
           </div>
 
 
-          <div class="settings-grid">
+          <div class="settings-layout">
+
+            <article class="settings-card">
+
+              <div class="settings-card-heading">
+
+                <span class="settings-icon">
+                  ◉
+                </span>
+
+                <div>
+                  <h2>
+                    Profile
+                  </h2>
+
+                  <p>
+                    Manage your learning identity.
+                  </p>
+                </div>
+
+              </div>
 
 
-            <!-- PROFILE -->
-            <div class="settings-card">
+              <form id="profileForm">
 
-              <div class="card-title">
+                <div class="profile-preview">
 
-                <span class="setting-icon">
+                  <div
+                    id="settingsAvatar"
+                    class="avatar avatar-large"
+                  >
+                    A
+                  </div>
+
+                  <div>
+                    <strong id="settingsPreviewName">
+                      Learner
+                    </strong>
+
+                    <span id="settingsPreviewEmail">
+                      —
+                    </span>
+                  </div>
+
+                </div>
+
+
+                <div class="field-group">
+
+                  <label for="profileName">
+                    Full name
+                  </label>
+
+                  <input
+                    id="profileName"
+                    type="text"
+                    placeholder="Your name"
+                  />
+
+                </div>
+
+
+                <div class="field-group">
+
+                  <label for="profileUsername">
+                    Username
+                  </label>
+
+                  <input
+                    id="profileUsername"
+                    type="text"
+                    placeholder="@username"
+                  />
+
+                </div>
+
+
+                <button
+                  class="primary-btn"
+                  type="submit"
+                >
+                  Save profile
+                </button>
+
+              </form>
+
+            </article>
+
+
+            <article class="settings-card">
+
+              <div class="settings-card-heading">
+
+                <span class="settings-icon">
+                  ☾
+                </span>
+
+                <div>
+                  <h2>
+                    Appearance
+                  </h2>
+
+                  <p>
+                    Choose how GyaanBikas looks.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="appearance-options">
+
+                <button
+                  class="appearance-option active"
+                  data-theme-choice="light"
+                  type="button"
+                >
+                  <span class="appearance-preview light-preview"></span>
+                  <strong>Light</strong>
+                  <small>Clean & bright</small>
+                </button>
+
+
+                <button
+                  class="appearance-option"
+                  data-theme-choice="dark"
+                  type="button"
+                >
+                  <span class="appearance-preview dark-preview"></span>
+                  <strong>Midnight</strong>
+                  <small>Deep & focused</small>
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <article class="settings-card">
+
+              <div class="settings-card-heading">
+
+                <span class="settings-icon">
                   ◎
                 </span>
 
                 <div>
-
-                  <h3>
-                    Profile
-                  </h3>
-
-                  <p>
-                    Your personal learning identity
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <label class="field">
-
-                <span>
-                  Full name
-                </span>
-
-                <input
-                  id="settingsName"
-                  placeholder="Your name">
-
-              </label>
-
-
-              <label class="field">
-
-                <span>
-                  Username
-                </span>
-
-                <input
-                  id="settingsUsername"
-                  placeholder="username">
-
-              </label>
-
-
-              <button
-                id="saveProfile"
-                class="primary-btn compact"
-                type="button">
-
-                Save profile
-
-              </button>
-
-            </div>
-
-
-            <!-- APPEARANCE -->
-            <div class="settings-card">
-
-              <div class="card-title">
-
-                <span class="setting-icon">
-                  ◐
-                </span>
-
-                <div>
-
-                  <h3>
-                    Appearance
-                  </h3>
-
-                  <p>
-                    Choose how GyaanBikas looks
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div class="theme-options">
-
-                <button
-                  data-theme="light"
-                  class="theme-option"
-                  type="button">
-
-                  ☼
-                  <span>
-                    Light
-                  </span>
-
-                </button>
-
-
-                <button
-                  data-theme="dark"
-                  class="theme-option"
-                  type="button">
-
-                  ☾
-                  <span>
-                    Dark
-                  </span>
-
-                </button>
-
-              </div>
-
-            </div>
-
-
-            <!-- ACCOUNT -->
-            <div class="settings-card">
-
-              <div class="card-title">
-
-                <span class="setting-icon">
-                  ⌁
-                </span>
-
-                <div>
-
-                  <h3>
+                  <h2>
                     Account
-                  </h3>
+                  </h2>
 
                   <p>
-                    Manage your session
+                    Your authentication information.
                   </p>
+                </div>
 
+              </div>
+
+
+              <div class="account-info">
+
+                <div>
+                  <span>Email</span>
+                  <strong id="accountEmail">
+                    —
+                  </strong>
+                </div>
+
+                <div>
+                  <span>Provider</span>
+                  <strong id="accountProvider">
+                    —
+                  </strong>
                 </div>
 
               </div>
 
 
               <button
-                id="settingsSignOut"
+                id="settingsSignOutBtn"
                 class="danger-btn"
-                type="button">
-
-                Sign out of GyaanBikas
-
+                type="button"
+              >
+                Sign out
               </button>
 
-            </div>
+            </article>
 
           </div>
 
         </section>
 
-      </div>
+      </section>
 
     </main>
 
-  </section>
+  </div>
 
 
-  <!-- =========================
-       NOTE MODAL
-  ========================== -->
+  <!-- ======================================================
+       NOTE READER
+  ======================================================= -->
+
   <div
-    id="noteModal"
-    class="modal hidden">
+    id="noteReader"
+    class="overlay-modal hidden"
+    aria-hidden="true"
+  >
 
-    <div class="modal-backdrop"></div>
+    <div class="reader-shell">
 
+      <header class="reader-toolbar">
 
-    <div class="note-modal">
+        <div class="reader-toolbar-left">
 
+          <button
+            id="closeReaderBtn"
+            class="icon-btn"
+            type="button"
+            aria-label="Close reader"
+          >
+            ←
+          </button>
 
-      <div class="modal-head">
+          <div class="reader-breadcrumb">
+            <span id="readerSubject">
+              Subject
+            </span>
 
-        <div>
+            <span>›</span>
 
-          <p class="eyebrow">
-            LEARNING NOTE
-          </p>
-
-          <h2 id="modalTitle">
-            New note
-          </h2>
+            <strong id="readerTopic">
+              Note
+            </strong>
+          </div>
 
         </div>
 
 
-        <button
-          id="closeModal"
-          class="icon-btn"
-          type="button"
-          aria-label="Close">
+        <div class="reader-toolbar-actions">
 
-          ×
+          <div
+            id="readerProgressText"
+            class="reader-progress-text"
+          >
+            0%
+          </div>
 
-        </button>
+          <button
+            id="readerFocusBtn"
+            class="icon-btn"
+            type="button"
+            title="Focus mode"
+          >
+            ⛶
+          </button>
+
+          <button
+            id="readerPrintBtn"
+            class="icon-btn"
+            type="button"
+            title="Print / Save PDF"
+          >
+            ⎙
+          </button>
+
+          <button
+            id="readerEditBtn"
+            class="primary-btn small-btn hidden"
+            type="button"
+          >
+            Edit Note
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <div class="reader-progress-track">
+
+        <div
+          id="readerProgressBar"
+          class="reader-progress-fill"
+        ></div>
 
       </div>
 
 
+      <div
+        id="readerScroll"
+        class="reader-scroll"
+      >
+
+        <article class="a4-note-page">
+
+          <header class="a4-note-header">
+
+            <div class="note-meta-line">
+
+              <span id="readerDate">
+                —
+              </span>
+
+              <span>•</span>
+
+              <span id="readerReadingTime">
+                1 min read
+              </span>
+
+              <span id="readerPinBadge" class="hidden">
+                • 📌 Pinned
+              </span>
+
+            </div>
+
+
+            <div
+              id="readerTags"
+              class="reader-tags"
+            ></div>
+
+
+            <h1 id="readerTitle">
+              Note title
+            </h1>
+
+          </header>
+
+
+          <div
+            id="readerToc"
+            class="reader-toc hidden"
+          >
+
+            <div class="reader-toc-title">
+              Contents
+            </div>
+
+            <div
+              id="readerTocList"
+              class="reader-toc-list"
+            ></div>
+
+          </div>
+
+
+          <div
+            id="readerContent"
+            class="reader-content"
+          ></div>
+
+
+          <footer class="a4-note-footer">
+
+            <div>
+              GyaanBikas
+            </div>
+
+            <div>
+              Learn. Build. Grow.
+            </div>
+
+          </footer>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ======================================================
+       IMAGE LIGHTBOX
+  ======================================================= -->
+
+  <div
+    id="imageLightbox"
+    class="image-lightbox hidden"
+    aria-hidden="true"
+  >
+
+    <button
+      id="closeLightboxBtn"
+      class="lightbox-close"
+      type="button"
+      aria-label="Close image"
+    >
+      ×
+    </button>
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Note image"
+    />
+
+  </div>
+
+
+  <!-- ======================================================
+       NOTE EDITOR MODAL
+  ======================================================= -->
+
+  <div
+    id="noteModal"
+    class="modal-overlay hidden"
+    aria-hidden="true"
+  >
+
+    <div class="modal-card note-editor-modal">
+
+      <header class="modal-header">
+
+        <div>
+
+          <span class="eyebrow">
+            KNOWLEDGE EDITOR
+          </span>
+
+          <h2 id="noteModalTitle">
+            Create note
+          </h2>
+
+        </div>
+
+        <button
+          id="closeNoteModal"
+          class="icon-btn"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </header>
+
+
       <form id="noteForm">
 
+        <div class="note-form-grid">
 
-        <input
-          type="hidden"
-          id="noteId">
+          <div class="field-group">
+
+            <label for="noteSubject">
+              Subject
+            </label>
+
+            <select id="noteSubject">
+              <option value="Machine Learning">
+                Machine Learning
+              </option>
+
+              <option value="Python">
+                Python
+              </option>
+
+              <option value="Java">
+                Java
+              </option>
+
+              <option value="Data Science">
+                Data Science
+              </option>
+
+              <option value="Web Development">
+                Web Development
+              </option>
+            </select>
+
+          </div>
 
 
-        <!-- SUBJECT + DATE -->
-        <div class="form-row two">
+          <div class="field-group">
+
+            <label for="noteDate">
+              Learning date
+            </label>
+
+            <input
+              id="noteDate"
+              type="date"
+            />
+
+          </div>
+
+        </div>
 
 
-          <label class="field">
+        <div class="field-group">
+
+          <label for="noteTopic">
+            Topic
+          </label>
+
+          <input
+            id="noteTopic"
+            type="text"
+            placeholder="e.g. Supervised Learning"
+            required
+          />
+
+        </div>
+
+
+        <!-- Editor -->
+
+        <div class="field-group">
+
+          <label>
+            Note content
+          </label>
+
+          <div class="rich-editor-shell">
+
+            <div
+              id="editorToolbar"
+              class="editor-toolbar"
+            >
+
+              <button
+                type="button"
+                data-command="bold"
+                title="Bold"
+              >
+                B
+              </button>
+
+              <button
+                type="button"
+                data-command="italic"
+                title="Italic"
+              >
+                I
+              </button>
+
+              <button
+                type="button"
+                data-command="underline"
+                title="Underline"
+              >
+                U
+              </button>
+
+              <button
+                type="button"
+                data-command="formatBlock"
+                data-value="h2"
+                title="Heading"
+              >
+                H
+              </button>
+
+              <button
+                type="button"
+                data-command="insertUnorderedList"
+                title="Bullet list"
+              >
+                •
+              </button>
+
+              <button
+                type="button"
+                data-command="insertOrderedList"
+                title="Numbered list"
+              >
+                1.
+              </button>
+
+              <button
+                type="button"
+                data-command="code"
+                title="Code"
+              >
+                &lt;/&gt;
+              </button>
+
+              <button
+                type="button"
+                data-command="link"
+                title="Add link"
+              >
+                🔗
+              </button>
+
+              <label
+                class="editor-image-btn"
+                title="Insert image"
+              >
+                🖼
+                <input
+                  id="noteImageInput"
+                  type="file"
+                  accept="image/*"
+                  hidden
+                />
+              </label>
+
+            </div>
+
+
+            <div
+              id="noteEditor"
+              class="rich-editor"
+              contenteditable="true"
+              data-placeholder="Start writing your lesson..."
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="note-form-grid">
+
+          <div class="field-group">
+
+            <label for="noteTags">
+              Tags
+            </label>
+
+            <input
+              id="noteTags"
+              type="text"
+              placeholder="AI, ML, classification"
+            />
+
+          </div>
+
+
+          <div class="field-group">
+
+            <label for="noteReference">
+              Reference URL
+            </label>
+
+            <input
+              id="noteReference"
+              type="url"
+              placeholder="https://..."
+            />
+
+          </div>
+
+        </div>
+
+
+        <div class="note-editor-options">
+
+          <label class="checkbox-label">
+
+            <input
+              id="notePinned"
+              type="checkbox"
+            />
 
             <span>
-              Subject
+              Pin this note
             </span>
 
-            <select
-              id="noteSubject"
-              required>
+          </label>
+
+        </div>
+
+
+        <footer class="modal-footer">
+
+          <button
+            id="deleteNoteBtn"
+            class="danger-btn hidden"
+            type="button"
+          >
+            Delete
+          </button>
+
+          <div class="modal-footer-right">
+
+            <button
+              id="cancelNoteBtn"
+              class="ghost-btn"
+              type="button"
+            >
+              Cancel
+            </button>
+
+            <button
+              id="saveNoteBtn"
+              class="primary-btn"
+              type="submit"
+            >
+              Save Note
+            </button>
+
+          </div>
+
+        </footer>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ======================================================
+       QUIZ CREATOR — ADMIN
+  ======================================================= -->
+
+  <div
+    id="quizCreatorModal"
+    class="modal-overlay hidden"
+    aria-hidden="true"
+  >
+
+    <div class="modal-card quiz-creator-modal">
+
+      <header class="modal-header">
+
+        <div>
+
+          <span class="eyebrow">
+            ADMIN • QUIZ BUILDER
+          </span>
+
+          <h2>
+            Create Quiz
+          </h2>
+
+        </div>
+
+        <button
+          id="closeQuizCreator"
+          class="icon-btn"
+          type="button"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <form id="quizCreatorForm">
+
+        <div class="note-form-grid">
+
+          <div class="field-group">
+
+            <label for="quizSubject">
+              Subject
+            </label>
+
+            <select id="quizSubject">
 
               <option value="Machine Learning">
                 Machine Learning
@@ -1067,234 +2444,168 @@
 
             </select>
 
+          </div>
+
+
+          <div class="field-group">
+
+            <label for="quizDifficulty">
+              Difficulty
+            </label>
+
+            <select id="quizDifficulty">
+
+              <option value="easy">
+                Easy
+              </option>
+
+              <option value="medium" selected>
+                Medium
+              </option>
+
+              <option value="hard">
+                Hard
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="field-group">
+
+          <label for="quizTitle">
+            Quiz title
           </label>
 
+          <input
+            id="quizTitle"
+            type="text"
+            placeholder="e.g. Supervised Learning — Quick Test"
+            required
+          />
 
-          <label class="field">
+        </div>
 
-            <span>
-              Learning date
+
+        <div class="field-group">
+
+          <label for="quizTopic">
+            Topic
+          </label>
+
+          <input
+            id="quizTopic"
+            type="text"
+            placeholder="e.g. Supervised Learning"
+            required
+          />
+
+        </div>
+
+
+        <div class="field-group">
+
+          <label for="quizDescription">
+            Description
+          </label>
+
+          <textarea
+            id="quizDescription"
+            rows="3"
+            placeholder="What will this quiz test?"
+          ></textarea>
+
+        </div>
+
+
+        <div class="note-form-grid">
+
+          <div class="field-group">
+
+            <label for="quizTimeLimit">
+              Time limit (minutes)
+            </label>
+
+            <input
+              id="quizTimeLimit"
+              type="number"
+              min="0"
+              step="1"
+              placeholder="Optional"
+            />
+
+          </div>
+
+          <div class="field-group">
+
+            <label class="checkbox-label quiz-publish-label">
+
+              <input
+                id="quizPublish"
+                type="checkbox"
+              />
+
+              <span>
+                Publish immediately
+              </span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div class="quiz-builder-heading">
+
+          <div>
+            <span class="eyebrow">
+              QUESTION BANK
             </span>
 
-            <input
-              id="noteDate"
-              type="date"
-              required>
-
-          </label>
-
-        </div>
-
-
-        <!-- TOPIC -->
-        <label class="field">
-
-          <span>
-            Topic
-          </span>
-
-          <input
-            id="noteTopic"
-            required
-            placeholder="e.g. Supervised Learning">
-
-        </label>
-
-
-        <!-- RICH EDITOR -->
-        <div class="editor-wrap">
-
-
-          <div class="editor-toolbar">
-
-
-            <button
-              type="button"
-              data-cmd="bold">
-
-              <b>B</b>
-
-            </button>
-
-
-            <button
-              type="button"
-              data-cmd="italic">
-
-              <i>I</i>
-
-            </button>
-
-
-            <button
-              type="button"
-              data-cmd="underline">
-
-              <u>U</u>
-
-            </button>
-
-
-            <button
-              type="button"
-              data-cmd="formatBlock"
-              data-value="h2">
-
-              H
-
-            </button>
-
-
-            <button
-              type="button"
-              data-cmd="insertUnorderedList">
-
-              •
-
-            </button>
-
-
-            <button
-              type="button"
-              data-cmd="insertOrderedList">
-
-              1.
-
-            </button>
-
-
-            <button
-              type="button"
-              id="codeBtn">
-
-              &lt;/&gt;
-
-            </button>
-
-
-            <button
-              type="button"
-              id="linkBtn">
-
-              ↗
-
-            </button>
-
-
-            <button
-              type="button"
-              id="imageBtn">
-
-              ▧
-
-            </button>
-
-
-            <input
-              id="imageInput"
-              type="file"
-              accept="image/*"
-              hidden>
-
+            <h3>
+              Questions
+            </h3>
           </div>
-
-
-          <div
-            id="noteEditor"
-            class="note-editor"
-            contenteditable="true"
-            data-placeholder="Write what you learned... Paste images directly here. Add code, links and visuals exactly where they belong.">
-          </div>
-
-        </div>
-
-
-        <!-- TAGS -->
-        <label class="field">
-
-          <span>
-            Tags
-            <small>
-              (comma separated)
-            </small>
-          </span>
-
-          <input
-            id="noteTags"
-            placeholder="ml, neural-network, notes">
-
-        </label>
-
-
-        <!-- REFERENCE -->
-        <label class="field">
-
-          <span>
-            Reference URL
-            <small>
-              (optional)
-            </small>
-          </span>
-
-          <input
-            id="noteReference"
-            type="url"
-            placeholder="https://...">
-
-        </label>
-
-
-        <!-- PIN -->
-        <label class="pin-check">
-
-          <input
-            id="notePinned"
-            type="checkbox">
-
-          <span>
-            Pin this note
-          </span>
-
-        </label>
-
-
-        <!-- ACTIONS -->
-        <div class="modal-actions">
-
 
           <button
+            id="addQuestionBtn"
+            class="ghost-btn"
             type="button"
-            id="deleteNoteBtn"
-            class="danger-btn hidden">
-
-            Delete
-
+          >
+            ＋ Add Question
           </button>
 
+        </div>
 
-          <span></span>
 
+        <div
+          id="quizQuestionBuilder"
+          class="quiz-question-builder"
+        ></div>
+
+
+        <footer class="modal-footer">
 
           <button
+            id="cancelQuizCreator"
+            class="ghost-btn"
             type="button"
-            id="cancelNote"
-            class="ghost-btn">
-
+          >
             Cancel
-
           </button>
-
 
           <button
+            class="primary-btn"
             type="submit"
-            class="primary-btn">
-
-            Save note
-            <span>→</span>
-
+          >
+            Create Quiz
           </button>
 
-        </div>
+        </footer>
 
       </form>
 
@@ -1303,49 +2614,64 @@
   </div>
 
 
-  <!-- =========================
-       MAIN APPLICATION JS
-  ========================== -->
-  <script
-    type="module"
-    src="js/app.js">
-  </script>
+  <!-- ======================================================
+       COMMAND PALETTE
+  ======================================================= -->
+
+  <div
+    id="commandPalette"
+    class="command-palette hidden"
+    aria-hidden="true"
+  >
+
+    <div class="command-palette-card">
+
+      <div class="command-input-wrap">
+
+        <span>⌕</span>
+
+        <input
+          id="commandInput"
+          type="search"
+          placeholder="Search commands..."
+          autocomplete="off"
+        />
+
+        <kbd>ESC</kbd>
+
+      </div>
 
 
-  <!-- =========================
-       PWA SERVICE WORKER
-  ========================== -->
-  <script>
+      <div
+        id="commandResults"
+        class="command-results"
+      ></div>
 
-    if ("serviceWorker" in navigator) {
+    </div>
 
-      window.addEventListener("load", () => {
+  </div>
 
-        navigator.serviceWorker
-          .register("./sw.js")
-          .then((registration) => {
 
-            console.log(
-              "GyaanBikas PWA Service Worker registered:",
-              registration.scope
-            );
+  <!-- ======================================================
+       GLOBAL TOAST
+  ======================================================= -->
 
-          })
-          .catch((error) => {
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+  >
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Done</span>
+  </div>
 
-            console.error(
-              "GyaanBikas Service Worker registration failed:",
-              error
-            );
 
-          });
+  <!-- ======================================================
+       JS
+  ======================================================= -->
 
-      });
-
-    }
-
-  </script>
+  <script type="module" src="./js/app.js?v=20260925-1"></script>
 
 </body>
-
 </html>
