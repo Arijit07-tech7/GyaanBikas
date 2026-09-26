@@ -1,9 +1,5 @@
 # 🧠 GyaanBikas
 
-<p align="center">
-  <img src="./icon.svg" alt="GyaanBikas Logo" width="110"/>
-</p>
-
 <h1 align="center">GyaanBikas</h1>
 
 <p align="center">
